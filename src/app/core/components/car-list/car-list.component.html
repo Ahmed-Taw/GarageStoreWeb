@@ -1,0 +1,35 @@
+<div class="container">
+    <ng-container  *ngFor="let car of cars let i = index">
+       <div class="car-card">
+        <!-- <p-card header="{{car.make}}" subheader="{{car.model}}" [style]="{width: '360px'}" styleClass="p-card-shadow">        
+            <p> year: {{car.yearModel}}</p>
+            <p>Price: {{car.price}}</p>
+            <p>Date Added: {{car.dateAdded | date:'shortDate'}}</p>
+    
+            <ng-template pTemplate="footer">
+                <p-button label="Add to shopping card" icon="pi pi-check"></p-button>
+            </ng-template>
+        </p-card> -->
+        <p-card  [style]="{width: '360px'}" styleClass="p-card-shadow">
+            <ng-template pTemplate="title">
+                <a href="#" (click)="openCarDetails(car.id)">
+                {{car.make}}
+            </a> 
+            </ng-template>
+            <ng-template pTemplate="subtitle">
+                {{car.model}}
+            </ng-template>
+            <ng-template pTemplate="content">
+                <p> year: {{car.yearModel}}</p>
+                <p>Price: {{car.price}}</p>
+                <p>Date Added: {{car.dateAdded | date:'shortDate'}}</p>
+            </ng-template>         
+           <ng-template pTemplate="footer">
+            <p-button label="Add to shopping card" [disabled]="!car.licensed"></p-button>
+        </ng-template>
+        </p-card>
+        
+        </div> 
+    
+    </ng-container>
+</div>
