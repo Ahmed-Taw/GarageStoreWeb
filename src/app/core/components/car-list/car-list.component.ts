@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { PrimeNGConfig } from 'primeng/api';
-import { Car } from '../../models/car-list.model';
 import { CarService } from '../../services/car-service.service';
 import { DialogService } from 'primeng/dynamicdialog';
 import { CarDetailsComponent } from '../car-details/car-details.component';
-
+import { Car } from 'src/app/shared/models/car.model';
+import { ShoppingCardService } from 'src/app/shared/services/shopping-card.service';
 @Component({
   selector: 'app-car-list',
   templateUrl: './car-list.component.html',
@@ -14,7 +13,7 @@ export class CarListComponent implements OnInit {
 
   cars: Car[] = [];
 
-  constructor(private carService: CarService,private dynamicDialogService: DialogService) { }
+  constructor(private carService: CarService,private dynamicDialogService: DialogService, private ShoppingCardService: ShoppingCardService) { }
 
   ngOnInit() {
       this.carService.getAllCars().subscribe(cars => this.cars = cars);
@@ -28,5 +27,10 @@ export class CarListComponent implements OnInit {
       header: 'Car Details',
       width: '35%',
     })
+  }
+
+  onAddToCartClicked(car: Car){
+   this.ShoppingCardService.addToCart(car);
+   car.isClicked = true;
   }
 }

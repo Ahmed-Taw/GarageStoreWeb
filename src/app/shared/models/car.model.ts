@@ -6,4 +6,5 @@ export interface Car {
     price: number;
     licensed: boolean;
     dateAdded: Date;
+    isClicked: boolean;
 }

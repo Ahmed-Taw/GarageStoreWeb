@@ -1,4 +1,4 @@
-import { Car } from "./car-list.model";
+import { Car } from "./car.model";
 
 export interface CarDetail extends Car{
     warehouseName: string;

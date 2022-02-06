@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
-import { CarDetail } from '../../models/car-detail.model';
-import { Car } from '../../models/car-list.model';
+import { CarDetail } from 'src/app/shared/models/car-details.model';
+
 import { CarService } from '../../services/car-service.service';
 
 @Component({

@@ -2,8 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Car } from '../models/car-list.model';
-import { CarDetail } from '../models/car-detail.model';
+import { Car } from 'src/app/shared/models/car.model';
+import { CarDetail } from 'src/app/shared/models/car-details.model';
+
 
 @Injectable({
   providedIn: 'root'
